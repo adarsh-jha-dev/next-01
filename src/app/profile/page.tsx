@@ -7,7 +7,7 @@ import { useRouter } from "next/navigation";
 
 export default function Profile() {
   const router = useRouter();
-  const [user, setUser] = useState(null);
+  const [user, setUser] = useState({ _id: "", username: "" });
 
   const logout = async () => {
     try {
@@ -26,7 +26,7 @@ export default function Profile() {
       setUser(res.data.data);
       console.log(res.data);
     } else {
-      setUser(null);
+      setUser({ _id: "", username: "" });
     }
   };
 
