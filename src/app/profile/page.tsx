@@ -7,7 +7,7 @@ import { useRouter } from "next/navigation";
 
 export default function Profile() {
   const router = useRouter();
-  const [user, setUser] = useState({ _id: "", username: "" });
+  const [user, setUser] = useState("nothing");
 
   const logout = async () => {
     try {
@@ -23,10 +23,10 @@ export default function Profile() {
   const toggleUserDetails = async () => {
     if (!user) {
       const res = await axios.get("/api/users/me");
-      setUser(res.data.data);
+      setUser(res.data.data._id);
       console.log(res.data);
     } else {
-      setUser({ _id: "", username: "" });
+      setUser("nothing");
     }
   };
 
@@ -40,7 +40,7 @@ export default function Profile() {
             Hello{" "}
             {user ? (
               <button className="p-2 m-1 border hover:bg-white transition-colors duration-200 ease-in-out hover:text-black border-gray-300 rounded-lg mb-4 focus:outline-none focus:border-gray-600">
-                <Link href={`/profile/${user._id}`}>{user.username}</Link>
+                <Link href={`/profile/${user}`}>{user}</Link>
               </button>
             ) : (
               "Guest"
