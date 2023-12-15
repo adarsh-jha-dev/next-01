@@ -21,7 +21,7 @@ export default function Profile() {
   };
 
   const toggleUserDetails = async () => {
-    if (!user) {
+    if (user === "nothing") {
       const res = await axios.get("/api/users/me");
       setUser(res.data.data._id);
       console.log(res.data);
@@ -38,7 +38,7 @@ export default function Profile() {
           <p className="p-1 text-xl">Here are the details</p>
           <h2 className="p-1">
             Hello{" "}
-            {user ? (
+            {user !== "nothing" ? (
               <button className="p-2 m-1 border hover:bg-white transition-colors duration-200 ease-in-out hover:text-black border-gray-300 rounded-lg mb-4 focus:outline-none focus:border-gray-600">
                 <Link href={`/profile/${user}`}>{user}</Link>
               </button>
@@ -58,7 +58,7 @@ export default function Profile() {
             onClick={toggleUserDetails}
             className="p-2 m-1 border hover:bg-white transition-colors duration-200 ease-in-out hover:text-black border-gray-300 rounded-lg mb-4 focus:outline-none focus:border-gray-300"
           >
-            {user ? "Hide" : "Get"} User details
+            {user !== "nothing" ? "Hide" : "Get"} User details
           </button>
         </div>
       </div>
