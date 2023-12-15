@@ -20,6 +20,8 @@ export default function Profile() {
     }
   };
 
+  // dummy comment to trigger the CI/CD of vercel
+
   const toggleUserDetails = async () => {
     if (user === "nothing") {
       const res = await axios.get("/api/users/me");
