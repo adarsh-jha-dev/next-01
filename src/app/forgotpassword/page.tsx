@@ -29,7 +29,7 @@ function ForgotPasswordPage() {
       {sentEmail ? (
         <div>
           <p className="text-xl text-center">
-            Reset Passwword Email sent successfully!!
+            Reset Password Email sent successfully!!
           </p>
         </div>
       ) : (
@@ -39,7 +39,7 @@ function ForgotPasswordPage() {
             <h3 className="text-center m-2 text-red-500">{error}</h3>
           ) : null}
           <div className="flex flex-col justify-center">
-            <h1 className="m-2 text-xl">Send Passord Recovery Email</h1>
+            <h1 className="m-2 text-xl">Send Password Recovery Email</h1>
             <div className="flex flex-col justify-evenly w-[400px] border border-white p-6 rounded-2xl">
               <form
                 className="flex flex-col justify-center"
